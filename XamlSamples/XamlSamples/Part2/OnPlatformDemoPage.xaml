@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XamlSamples.Part2.OnPlatformDemoPage">
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <OnPlatform.Platforms>
+                <On Platform="iOS" Value="0, 20, 0, 0" />
+                <On Platform="Android" Value="0, 0, 0, 0" />
+                <On Platform="UWP" Value="0, 0, 0, 0" />
+            </OnPlatform.Platforms>
+        </OnPlatform>
+    </ContentPage.Padding>
+    <!--OR-->
+
+    <!--This markup can be simplified. The content property of OnPlatform is Platforms, so those property-element tags can be removed-->
+    <!--<ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="iOS" Value="0, 20, 0, 0" />
+            <On Platform="Android" Value="0, 0, 0, 0" />
+            <On Platform="UWP" Value="0, 0, 0, 0" />
+        </OnPlatform>
+    </ContentPage.Padding>-->
+    <!--OR-->
+
+    <!--The Platform property of On is of type IList <string>, so you can include multiple platforms if the values are the same-->
+    <!--<ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="iOS" Value="0, 20, 0, 0" />
+            <On Platform="Android, UWP" Value="0, 0, 0, 0" />
+        </OnPlatform>
+    </ContentPage.Padding>-->
+    <!--OR-->
+
+    <!--Because Android and UWP are set to the default value of Padding, that tag can be removed-->
+    <!--<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="...">
+
+        <ContentPage.Padding>
+            <OnPlatform x:TypeArguments="Thickness">
+                <On Platform="iOS" Value="0, 20, 0, 0" />
+            </OnPlatform>
+        </ContentPage.Padding>-->
+    <!--OR-->
+
+    <!--If the Value setting cannot be represented by a single string, you can define property elements for it-->
+    <!--<ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="iOS">
+                <On.Value>
+                    0, 20, 0, 0
+                </On.Value>
+            </On>
+        </OnPlatform>
+    </ContentPage.Padding>-->
+</ContentPage>
